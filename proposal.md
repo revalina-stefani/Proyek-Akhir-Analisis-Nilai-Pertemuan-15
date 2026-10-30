@@ -75,7 +75,6 @@ Menghitung rata-rata, nilai minimum, dan maksimum.
 Menentukan status tuntas atau belum tuntas berdasarkan KKM.
 Menyiapkan laporan hasil analisis.
 
-
 C. Output
 
 Output yang dihasilkan program adalah:
@@ -143,17 +142,17 @@ SELESAI
 Program dibagi menjadi beberapa fungsi agar setiap bagian memiliki tanggung jawab yang jelas.
 
 
+Program dibagi menjadi beberapa fungsi agar setiap bagian memiliki tanggung jawab yang jelas.
+
 | Fungsi | Tanggung Jawab | Input | Output |
 |---|---|---|---|
-| baca_data() | Membaca data nilai dari file | Path file | List data siswa |
+| baca_data() | Membaca dan memvalidasi data siswa dari file | Path file | List data siswa valid |
 | validasi_nilai() | Memeriksa rentang nilai 0–100 | Nilai | True/False |
 | hitung_statistik() | Menghitung rata-rata, minimum, dan maksimum | Data nilai | Dictionary statistik |
-| tentukan_status() | Menentukan status ketuntasan | Nilai dan KKM | Status siswa |
-| simpan_laporan() | Menyimpan hasil analisis ke file | Hasil analisis dan path | File laporan |
+| tentukan_status() | Menentukan status ketuntasan siswa | Nilai dan KKM | Status siswa |
+| simpan_laporan() | Menyimpan hasil analisis ke file | Isi laporan dan path | File laporan |
 | main() | Mengatur seluruh alur program | - | Hasil program |
 
-
-Struktur folder proyek:
 
 
 proyek-akhir-analisis-nilai/
@@ -181,10 +180,11 @@ proyek-akhir-analisis-nilai/
 
 
 
+
 Prinsip modularisasi digunakan untuk memisahkan proses pembacaan data, pengolahan nilai, dan pengelolaan hasil laporan agar program lebih mudah diuji dan diperbaiki.
 
 
-## 9. Pemilihan Struktur Data
+9. Pemilihan Struktur Data
 
 Struktur data yang digunakan dalam program ini adalah:
 
@@ -206,17 +206,6 @@ data_mahasiswa = [
 
 Struktur data tersebut dipilih karena sederhana, sesuai dengan materi Python yang dipelajari, dan dapat mendukung seluruh fitur wajib proyek.
 
-
-Contoh model data:
-
-python
-data_mahasiswa = {
-    "A001": {"nama": "Ayu", "nilai": 85},
-    "A002": {"nama": "Budi", "nilai": 78}
-}
-
-
-Struktur data tersebut dipilih karena sederhana, sesuai dengan materi Python yang dipelajari, dan dapat mendukung seluruh fitur wajib proyek.
 10. Perancangan Test Case
 
 Pengujian dilakukan untuk memastikan seluruh fitur program berjalan sesuai kebutuhan. Test case mencakup kondisi normal, batas, dan invalid.
@@ -262,7 +251,7 @@ Pertemuan 15	Integrasi program, pengujian, debugging, dan dokumentasi
 Pertemuan 16	Presentasi, demonstrasi program, dan evaluasi proyek
 
 
-## Repository GitHub
+## 13. Repository GitHub
 
 Repository proyek digunakan sebagai tempat penyimpanan kode program, data contoh, dokumentasi, dan test case.
 
@@ -272,3 +261,4 @@ Repository proyek digunakan sebagai tempat penyimpanan kode program, data contoh
 - Branch utama: main
 
 Repository digunakan untuk mencatat perkembangan proyek melalui commit sehingga setiap perubahan dapat ditelusuri.
+
