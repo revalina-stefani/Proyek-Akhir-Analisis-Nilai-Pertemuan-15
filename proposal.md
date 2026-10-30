@@ -75,15 +75,18 @@ Menghitung rata-rata, nilai minimum, dan maksimum.
 Menentukan status tuntas atau belum tuntas berdasarkan KKM.
 Menyiapkan laporan hasil analisis.
 
+
 C. Output
 
 Output yang dihasilkan program adalah:
 
-Daftar data siswa yang valid.
-Rata-rata nilai kelas.
-Nilai minimum dan maksimum.
-Jumlah siswa tuntas dan belum tuntas.
-File laporan dengan nama laporan.txt.
+- Daftar data siswa yang valid.
+- Rata-rata nilai kelas.
+- Nilai minimum dan maksimum.
+- Jumlah siswa tuntas dan belum tuntas.
+- Status ketuntasan setiap siswa.
+- File laporan hasil analisis pada `output/laporan_nilai.txt`.
+
 
 7. Algoritma dan Pseudocode
 
@@ -139,17 +142,20 @@ SELESAI
 
 Program dibagi menjadi beberapa fungsi agar setiap bagian memiliki tanggung jawab yang jelas.
 
-Fungsi	Tanggung Jawab	Input	Output
-baca_data()	Membaca data nilai dari file	Path file	Data siswa
-validasi_nilai()	Memeriksa rentang nilai 0–100	Nilai	True/False
-hitung_statistik()	Menghitung rata-rata, minimum, dan maksimum	Data nilai	Dictionary statistik
-tentukan_status()	Menentukan status ketuntasan	Nilai dan KKM	Status siswa
-simpan_laporan()	Menyimpan hasil analisis ke file	Hasil analisis dan path	File laporan
-main()	Mengatur seluruh alur program	-	Hasil program
+
+| Fungsi | Tanggung Jawab | Input | Output |
+|---|---|---|---|
+| baca_data() | Membaca data nilai dari file | Path file | List data siswa |
+| validasi_nilai() | Memeriksa rentang nilai 0–100 | Nilai | True/False |
+| hitung_statistik() | Menghitung rata-rata, minimum, dan maksimum | Data nilai | Dictionary statistik |
+| tentukan_status() | Menentukan status ketuntasan | Nilai dan KKM | Status siswa |
+| simpan_laporan() | Menyimpan hasil analisis ke file | Hasil analisis dan path | File laporan |
+| main() | Mengatur seluruh alur program | - | Hasil program |
+
 
 Struktur folder proyek:
 
-text
+
 proyek-akhir-analisis-nilai/
 │
 ├── README.md
@@ -166,22 +172,40 @@ proyek-akhir-analisis-nilai/
 │   └── utilitas.py
 │
 ├── tests/
-│   └── test_case.md
+│   ├── test_case.md
+│   ├── test_analisis.py
+│   └── test_data_io.py
 │
 └── output/
-    └── .gitkeep
+    └── laporan_nilai.txt
+
 
 
 Prinsip modularisasi digunakan untuk memisahkan proses pembacaan data, pengolahan nilai, dan pengelolaan hasil laporan agar program lebih mudah diuji dan diperbaiki.
-9. Pemilihan Struktur Data
+
+
+## 9. Pemilihan Struktur Data
 
 Struktur data yang digunakan dalam program ini adalah:
 
-Struktur Data	Penggunaan	Alasan
-List	Menyimpan kumpulan nilai siswa	Memudahkan proses iterasi dan perhitungan statistik
-Dictionary	Menyimpan NIM, nama, dan nilai siswa	Memudahkan akses data berdasarkan NIM
-String	Menyimpan nama, pesan, dan teks laporan	Memudahkan pengolahan dan penyusunan laporan
-File	Menyimpan data nilai dan hasil laporan	Memungkinkan data dibaca dan disimpan secara permanen
+| Struktur Data | Penggunaan | Alasan |
+|---|---|---|
+| List | Menyimpan kumpulan data siswa dan nilai | Memudahkan iterasi dan perhitungan statistik |
+| Dictionary | Menyimpan atribut siswa seperti nama dan nilai | Memudahkan akses data berdasarkan key |
+| String | Menyimpan nama, pesan, dan teks laporan | Memudahkan pengolahan teks |
+| File | Membaca data nilai dan menyimpan laporan | Memungkinkan data disimpan secara permanen |
+
+Contoh model data:
+
+```python
+data_mahasiswa = [
+    {"nama": "Ayu", "nilai": 85},
+    {"nama": "Budi", "nilai": 78}
+]
+```
+
+Struktur data tersebut dipilih karena sederhana, sesuai dengan materi Python yang dipelajari, dan dapat mendukung seluruh fitur wajib proyek.
+
 
 Contoh model data:
 
@@ -237,13 +261,14 @@ Antara P14–P15	Membuat implementasi awal fitur wajib
 Pertemuan 15	Integrasi program, pengujian, debugging, dan dokumentasi
 Pertemuan 16	Presentasi, demonstrasi program, dan evaluasi proyek
 
-13. Repository GitHub
+
+## Repository GitHub
 
 Repository proyek digunakan sebagai tempat penyimpanan kode program, data contoh, dokumentasi, dan test case.
 
-Platform: GitHub
-Nama repository: proyek-akhir-analisis-nilai
-URL repository: Akan dilengkapi setelah repository dibuat.
-Branch utama: main
+- Platform: GitHub
+- Nama repository: proyek-akhir-analisis-nilai
+- URL repository: https://github.com/revalina-stefani/proyek-akhir-analisis-nilai
+- Branch utama: main
 
 Repository digunakan untuk mencatat perkembangan proyek melalui commit sehingga setiap perubahan dapat ditelusuri.
