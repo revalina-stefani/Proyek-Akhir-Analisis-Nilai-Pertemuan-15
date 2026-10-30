@@ -1,0 +1,9 @@
+
+Ayu,85
+Budi,70
+Citra,90
+Dina,65
+Eko,80
+Fani,95
+Gilang,75
+Hana,60

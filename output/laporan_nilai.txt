@@ -1,0 +1,24 @@
+=============================================
+LAPORAN ANALISIS NILAI MATEMATIKA
+=============================================
+
+DAFTAR NILAI MAHASISWA
+1. Ayu - 85.00 - Tuntas
+2. Budi - 70.00 - Belum Tuntas
+3. Citra - 90.00 - Tuntas
+4. Dina - 65.00 - Belum Tuntas
+5. Eko - 80.00 - Tuntas
+6. Fani - 95.00 - Tuntas
+7. Gilang - 75.00 - Tuntas
+8. Hana - 60.00 - Belum Tuntas
+
+STATISTIK NILAI
+Rata-rata : 77.50
+Minimum   : 60.00
+Maksimum  : 95.00
+
+KETUNTASAN
+KKM             : 75.0
+Jumlah Tuntas   : 5
+Jumlah Belum Tuntas : 3
+=============================================
