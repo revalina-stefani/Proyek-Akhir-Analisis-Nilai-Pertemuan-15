@@ -1,4 +1,7 @@
 
+from pathlib import Path
+
+
 def baca_data(path):
     """
     Membaca data mahasiswa dari file teks.
@@ -8,42 +11,46 @@ def baca_data(path):
     data = []
 
     try:
-        with open(path, "r") as file:
+        with open(path, "r", encoding="utf-8") as file:
             for nomor_baris, baris in enumerate(file, start=1):
                 baris = baris.strip()
 
                 if not baris:
                     continue
 
+                bagian = baris.split(",")
+
+                if len(bagian) != 2:
+                    print(f"Baris {nomor_baris} tidak valid.")
+                    continue
+
+                nama = bagian[0].strip()
+
+                if not nama:
+                    print(f"Nama pada baris {nomor_baris} kosong.")
+                    continue
+
                 try:
-                    bagian = baris.split(",")
-
-                    if len(bagian) != 2:
-                        print(f"Baris {nomor_baris} tidak valid.")
-                        continue
-
-                    nama = bagian[0].strip()
                     nilai = float(bagian[1].strip())
-
-                    if not nama:
-                        print(f"Nama pada baris {nomor_baris} kosong.")
-                        continue
-
-                    if 0 <= nilai <= 100:
-                        mahasiswa = {
-                            "nama": nama,
-                            "nilai": nilai
-                        }
-
-                        data.append(mahasiswa)
-                    else:
-                        print(f"Nilai {nama} di luar rentang 0-100.")
-
                 except ValueError:
-                    print(f"Data pada baris {nomor_baris} tidak valid.")
+                    print(f"Nilai pada baris {nomor_baris} bukan angka.")
+                    continue
+
+                if 0 <= nilai <= 100:
+                    data.append({
+                        "nama": nama,
+                        "nilai": nilai
+                    })
+                else:
+                    print(
+                        f"Nilai {nama} di luar rentang 0-100."
+                    )
 
     except FileNotFoundError:
-        print("Error: File data tidak ditemukan.")
+        print(f"Error: File {path} tidak ditemukan.")
+
+    except OSError as error:
+        print(f"Gagal membaca file: {error}")
 
     return data
 
@@ -54,10 +61,24 @@ def simpan_laporan(isi_laporan, path):
     """
 
     try:
-        with open(path, "w") as file:
+        lokasi_file = Path(path)
+
+        lokasi_file.parent.mkdir(
+            parents=True,
+            exist_ok=True
+        )
+
+        with open(
+            lokasi_file,
+            "w",
+            encoding="utf-8"
+        ) as file:
             file.write(isi_laporan)
 
-        print(f"Laporan berhasil disimpan di {path}")
+        print(f"Laporan berhasil disimpan di {lokasi_file}")
+
+        return True
 
     except OSError as error:
         print(f"Gagal menyimpan laporan: {error}")
+        return False

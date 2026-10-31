@@ -13,12 +13,13 @@ DAFTAR NILAI MAHASISWA
 8. Hana - 60.00 - Belum Tuntas
 
 STATISTIK NILAI
+Jumlah    : 8
 Rata-rata : 77.50
 Minimum   : 60.00
 Maksimum  : 95.00
 
 KETUNTASAN
-KKM             : 75.0
-Jumlah Tuntas   : 5
+KKM                 : 75.0
+Jumlah Tuntas       : 5
 Jumlah Belum Tuntas : 3
 =============================================

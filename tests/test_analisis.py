@@ -1,13 +1,9 @@
-
 import sys
-import os
+from pathlib import Path
 
-sys.path.insert(
-    0,
-    os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "..")
-    )
-)
+# Menambahkan folder utama proyek ke jalur pencarian Python
+ROOT_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT_DIR))
 
 from src.analisis import (
     validasi_nilai,
@@ -18,14 +14,16 @@ from src.analisis import (
 
 
 def test_nilai_valid():
-    assert validasi_nilai(0) == True
-    assert validasi_nilai(100) == True
-    assert validasi_nilai(80) == True
+    assert validasi_nilai(0)
+    assert validasi_nilai(100)
+    assert validasi_nilai(80)
 
 
 def test_nilai_invalid():
-    assert validasi_nilai(105) == False
-    assert validasi_nilai(-5) == False
+    assert not validasi_nilai(105)
+    assert not validasi_nilai(-5)
+    assert not validasi_nilai("abc")
+    assert not validasi_nilai(True)
 
 
 def test_hitung_statistik():
@@ -37,14 +35,25 @@ def test_hitung_statistik():
 
     hasil = hitung_statistik(data)
 
+    assert hasil["jumlah"] == 3
     assert hasil["rata_rata"] == 80
     assert hasil["minimum"] == 70
     assert hasil["maksimum"] == 90
 
 
+def test_statistik_data_kosong():
+    hasil = hitung_statistik([])
+
+    assert hasil is None
+
+
 def test_tentukan_status():
     assert tentukan_status(80, 75) == "Tuntas"
     assert tentukan_status(70, 75) == "Belum Tuntas"
+
+
+def test_batas_kkm():
+    assert tentukan_status(75, 75) == "Tuntas"
 
 
 def test_hitung_ketuntasan():
@@ -64,7 +73,9 @@ if __name__ == "__main__":
     test_nilai_valid()
     test_nilai_invalid()
     test_hitung_statistik()
+    test_statistik_data_kosong()
     test_tentukan_status()
+    test_batas_kkm()
     test_hitung_ketuntasan()
 
-    print("Semua pengujian berhasil!")
+    print("Semua pengujian analisis berhasil!")
